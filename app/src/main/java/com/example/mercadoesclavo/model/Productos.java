@@ -1,4 +1,4 @@
-package com.example.mercadoesclavo;
+package com.example.mercadoesclavo.model;
 
 public class Productos {
 

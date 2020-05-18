@@ -1,16 +1,18 @@
-package com.example.mercadoesclavo;
+package com.example.mercadoesclavo.view;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+
+import com.example.mercadoesclavo.dao.ProveedorDeProductos;
+import com.example.mercadoesclavo.R;
+import com.example.mercadoesclavo.model.Productos;
 
 import java.util.List;
 

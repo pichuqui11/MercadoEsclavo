@@ -3,9 +3,10 @@ package com.example.mercadoesclavo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.mercadoesclavo.view.MercadoEsclavoFragment;
 
 public class MainActivity extends AppCompatActivity {
 

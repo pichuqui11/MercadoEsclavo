@@ -1,4 +1,4 @@
-package com.example.mercadoesclavo;
+package com.example.mercadoesclavo.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mercadoesclavo.R;
+import com.example.mercadoesclavo.model.Productos;
 
 import java.util.List;
 
