@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.mercadoesclavo.model.Productos;
+import com.example.mercadoesclavo.view.DetailActivity;
 import com.example.mercadoesclavo.view.MercadoEsclavoFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MercadoEsclavoFragment.MercadoEsclavoFragmentListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +28,19 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.activiyMainContenedorFragment, mercadoEsclavoFragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onClickProductosDesdeFragment(Productos productos) {
+
+        Intent unIntent = new Intent(this, DetailActivity.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("productos", productos);
+
+        unIntent.putExtras(bundle);
+
+        startActivity(unIntent);
+
     }
 }

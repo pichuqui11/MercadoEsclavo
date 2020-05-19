@@ -1,7 +1,9 @@
 package com.example.mercadoesclavo.view;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,12 +22,18 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MercadoEsclavoFragment extends Fragment {
+public class MercadoEsclavoFragment extends Fragment implements ProductosAdapter.ProductosAdapterListener {
 
+    private MercadoEsclavoFragmentListener mercadoEsclavoFragmentListener;
     public MercadoEsclavoFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.mercadoEsclavoFragmentListener = (MercadoEsclavoFragmentListener) context;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +44,7 @@ public class MercadoEsclavoFragment extends Fragment {
         RecyclerView recyclerViewProductos = view.findViewById(R.id.fragmentRecycleMercadoEsclavo);
 
         List<Productos> productosList = ProveedorDeProductos.getProductos();
-        ProductosAdapter productosAdapter = new ProductosAdapter(productosList);
+        ProductosAdapter productosAdapter = new ProductosAdapter(productosList, this);
         GridLayoutManager linearLayoutManager = new GridLayoutManager(view.getContext(),2);
 
         recyclerViewProductos.setLayoutManager(linearLayoutManager);
@@ -44,4 +52,14 @@ public class MercadoEsclavoFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onClickProductos(Productos productos) {
+        mercadoEsclavoFragmentListener.onClickProductosDesdeFragment(productos);
+
+    }
+    public interface MercadoEsclavoFragmentListener {
+        public void onClickProductosDesdeFragment (Productos productos);
+    }
+
 }

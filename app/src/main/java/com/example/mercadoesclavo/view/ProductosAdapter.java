@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +18,11 @@ import java.util.List;
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolderProductos> {
 
     private List<Productos> productosList;
+    private ProductosAdapterListener productosAdapterListener;
 
-    public ProductosAdapter(List<Productos> productosList) {
+    public ProductosAdapter(List<Productos> productosList, ProductosAdapterListener listener) {
         this.productosList = productosList;
+        this.productosAdapterListener = listener;
     }
 
     @NonNull
@@ -49,11 +52,21 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         private TextView textViewNombreProductos;
         private TextView textViewPreciosProductos;
 
-        public ViewHolderProductos(@NonNull View itemView) {
+        public ViewHolderProductos(@NonNull final View itemView) {
             super(itemView);
             imageViewProductos = itemView.findViewById(R.id.celdaImageViewProducto);
             textViewNombreProductos = itemView.findViewById(R.id.celdaTextViewNombreProducto);
             textViewPreciosProductos = itemView.findViewById(R.id.celdaTextViewPrecioProducto);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Productos productos = productosList.get(getAdapterPosition());
+                    productosAdapterListener.onClickProductos(productos);
+                }
+            });
+
+
         }
 
 
@@ -63,4 +76,9 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
             textViewPreciosProductos.setText("$ " + productos.getPrecio().toString());
         }
     }
+
+        public interface ProductosAdapterListener {
+        public void onClickProductos(Productos productos);
+        }
+
 }
