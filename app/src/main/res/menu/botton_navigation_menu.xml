@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Explorar"
+        android:title="EXPLORAR"
+        android:icon="@drawable/ic_explore_black_24dp"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/Mensajes"
+        android:title="MENSAJES"
+        android:icon="@drawable/ic_question_answer_black_24dp"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/VENDER"
+        android:title="@string/botton_navigation_menu"
+        android:iconTint="#03A9F4"
+        android:icon="@drawable/ic_camera_black_24dp"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/MisAnuncios"
+        android:title="MIS ANUNCIOS"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/Perfil"
+        android:title="PERFIL"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:enabled="true"/>
+
+</menu>

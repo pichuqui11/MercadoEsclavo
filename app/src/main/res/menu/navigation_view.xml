@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-     android:title="About us"
+     android:id="@+id/menuAboutUs"
+        android:title="About us"
         android:icon="@drawable/ic_people_black_24dp"/>
 
 </menu>

@@ -4,22 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.MercadoEsclavoFragment">
+    tools:context=".view.MercadoEsclavoFragment"
+    android:background="#FFF">
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textStyle="bold"
         android:textSize="15dp"
         android:text="Nuevas Recomendaciones"
         android:background="#FFFFFF"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:paddingTop="10dp"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragmentRecycleMercadoEsclavo"/>
+        android:id="@+id/fragmentRecycleMercadoEsclavo"
+        android:paddingTop="10dp"/>
 
 
 </LinearLayout>

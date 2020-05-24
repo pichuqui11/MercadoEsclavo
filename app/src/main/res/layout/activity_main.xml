@@ -5,19 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/drawerLayout">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="#EAEAEA"
+            app:titleTextColor="#000"
+            android:id="@+id/activityMainToolBar"
+            android:elevation="4dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/activiyMainContenedorFragment"/>
+        android:id="@+id/activiyMainContenedorFragment"
+        android:layout_below="@+id/activityMainToolBar"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/activiyMainContenedorFragment"
+            android:background="#FFF"
+            app:menu="@menu/botton_navigation_menu"
+            app:labelVisibilityMode="labeled"
+            app:itemIconSize="20dp"
+            app:itemIconTint="#000"
+            android:elevation="4dp"/>
+
+
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_view"/>
+        app:menu="@menu/navigation_view"
+        android:id="@+id/navigationView"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

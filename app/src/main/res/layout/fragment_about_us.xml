@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AboutUs"
+    android:orientation="vertical"
+    android:background="#FFF">
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="¿Cuál es la misión de Mercado Esclavo y sus principales fortalezas respecto a otras empresas similares en el mercado?"
+         android:textSize="20dp"
+         android:textAlignment="center"
+         android:textColor="#000"
+         android:textStyle="bold"
+         android:paddingTop="20dp"/>
+
+     <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/misionyvalores"
+             android:textColor="#000"
+             android:paddingTop="30dp"
+             android:paddingLeft="10dp"
+             android:paddingRight="10dp"/>
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Mercado Esclavo… sirve de puente entre compradores y vendedores"
+         android:textStyle="italic"
+         android:textAlignment="center"
+         android:textColor="#000"
+         android:paddingTop="20dp"/>
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/misionyvalores2"
+             android:textColor="#000"
+             android:paddingTop="30dp"
+             android:paddingLeft="10dp"
+             android:paddingRight="10dp"/>
+
+
+     </LinearLayout>
+
+ </ScrollView>
+
+</LinearLayout>
