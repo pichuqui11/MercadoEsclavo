@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.mercadoesclavo.controller.ProductoController;
 import com.example.mercadoesclavo.model.Productos;
+import com.example.mercadoesclavo.util.ResultListener;
 import com.example.mercadoesclavo.view.AboutUs;
 import com.example.mercadoesclavo.view.DetailActivity;
 import com.example.mercadoesclavo.view.MercadoEsclavoFragment;
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity implements MercadoEsclavoFra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ProductoController productoController = new ProductoController();
+        productoController.getProductos(new ResultListener<Object>() {
+            @Override
+            public void onFinish(Object result) {
+
+            }
+        });
 
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
