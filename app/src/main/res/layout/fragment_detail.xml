@@ -1,22 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.DetailFragment"
     android:orientation="vertical">
 
-    <ImageView
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:id="@+id/detailFragmentImageView"/>
+        android:id="@+id/FragmentDetailRecycle"
+        android:scrollbars="horizontal"
+        android:scrollbarStyle="outsideInset"/>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="#000"
+               />
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="$1200"
+               android:paddingLeft="10dp"
+               android:textSize="20dp"
+               android:textStyle="bold"
+               android:textColor="#000"
+               android:id="@+id/TextViewPrecioFragmentDetalle"
+               android:paddingTop="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:textSize="15dp"
         android:text="Nombre Producto"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textColor="#000"
         android:id="@+id/detailFragmentNombreProductoTextView"/>
 
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+                android:orientation="horizontal"
+               android:paddingBottom="20dp">
 
-</LinearLayout>
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/ic_outline_location_on_24"
+                   android:paddingTop="15dp"
+                   android:id="@+id/DetailFragmentIconoLocation"/>
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Buenos Aires, Bragado"
+                   android:paddingTop="15dp"
+                   android:layout_toRightOf="@+id/DetailFragmentIconoLocation"
+                   android:id="@+id/DetailFragmentTextViewLocation"/>
+                   
+
+              <!-- <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="15dp"
+                   android:text="12 Jun"
+                   android:layout_alignParentRight="true"
+                   android:paddingRight="5dp"
+                   android:id="@+id/DetailFragmentFechaPublicacion"/>
+              -->
+                   
+           </RelativeLayout>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="#000"
+               />
+
+           
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Detalles"
+               android:textStyle="bold"
+               android:textSize="15dp"
+               android:textColor="#000"
+               android:paddingTop="15dp"
+               android:paddingLeft="10dp"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/FragmentDetailDescription"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/FragmentDetailDescriptionTexto"
+               android:paddingLeft="10dp"
+               android:paddingBottom="20dp"/>
+
+       </LinearLayout>
+   </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

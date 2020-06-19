@@ -1,6 +1,12 @@
 package com.example.mercadoesclavo.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Productos implements Serializable {
 
@@ -9,21 +15,76 @@ public class Productos implements Serializable {
     private Double precio;
 
 
+
     //DESDE MERCADO PARA RECYCLE
     private String id;
     private String title;
     private Double price;
     private String thumbnail;
-    private String state_name;
-    private String city_name;
+    private String stateName;
+    private String cityName;
+    @SerializedName("address")
+    private Address address;
+    @SerializedName("plain_text")
+    private String plainText;
+    @SerializedName("start_time")
+    private Date startTime;
+    @SerializedName("sold_quantity")
+    private Integer soldQuantity;
+    @SerializedName("pictures")
+    private ArrayList<Pictures> picturelist;
 
-    public Productos(String id, String title, Double price, String thumbnail, String state_name, String city_name) {
+
+    public Productos(String id, String title, Double price, String thumbnail, Address address, String plainText, Date startTime, Integer soldQuantity, ArrayList<Pictures> picturelist) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.thumbnail = thumbnail;
-        this.state_name = state_name;
-        this.city_name = city_name;
+        this.address = address;
+        this.plainText = plainText ;
+        this.startTime = startTime;
+        this.soldQuantity = soldQuantity;
+        this.picturelist = picturelist;
+    }
+
+    public ArrayList<Pictures> getPictures() {
+        return picturelist;
+    }
+
+    public void setPicturelist(ArrayList<Pictures> picturelist) {
+        this.picturelist = picturelist;
+    }
+
+    public Integer getSoldQuantity() {
+        return soldQuantity;
+    }
+
+    public void setSoldQuantity(Integer soldQuantity) {
+        this.soldQuantity = soldQuantity;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getPlainText() {
+        return plainText;
+    }
+
+    public void setPlainText(String description) {
+        this.plainText = description;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getId() {
@@ -58,20 +119,20 @@ public class Productos implements Serializable {
         this.thumbnail = thumbnail;
     }
 
-    public String getState_name() {
-        return state_name;
+    public String getStateName() {
+        return stateName;
     }
 
-    public void setState_name(String state_name) {
-        this.state_name = state_name;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
-    public String getCity_name() {
-        return city_name;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity_name(String city_name) {
-        this.city_name = city_name;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     //SIN INTERNET

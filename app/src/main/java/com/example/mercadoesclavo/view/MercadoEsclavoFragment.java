@@ -12,9 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mercadoesclavo.controller.ProductoController;
 import com.example.mercadoesclavo.dao.ProveedorDeProductos;
 import com.example.mercadoesclavo.R;
 import com.example.mercadoesclavo.model.Productos;
+import com.example.mercadoesclavo.model.ProductosConteiner;
+import com.example.mercadoesclavo.util.ResultListener;
 
 import java.util.List;
 
@@ -25,6 +28,7 @@ import java.util.List;
 public class MercadoEsclavoFragment extends Fragment implements ProductosAdapter.ProductosAdapterListener {
 
     private MercadoEsclavoFragmentListener mercadoEsclavoFragmentListener;
+    private RecyclerView recyclerViewProductos;
     public MercadoEsclavoFragment() {
         // Required empty public constructor
     }
@@ -39,16 +43,25 @@ public class MercadoEsclavoFragment extends Fragment implements ProductosAdapter
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mercado_esclavo, container, false);
+        final View view = inflater.inflate(R.layout.fragment_mercado_esclavo, container, false);
 
-        RecyclerView recyclerViewProductos = view.findViewById(R.id.fragmentRecycleMercadoEsclavo);
+        recyclerViewProductos = view.findViewById(R.id.fragmentRecycleMercadoEsclavo);
 
-        List<Productos> productosList = ProveedorDeProductos.getProductos();
-        ProductosAdapter productosAdapter = new ProductosAdapter(productosList, this);
-        GridLayoutManager linearLayoutManager = new GridLayoutManager(view.getContext(),2);
 
-        recyclerViewProductos.setLayoutManager(linearLayoutManager);
-        recyclerViewProductos.setAdapter(productosAdapter);
+
+        ProductoController productoController = new ProductoController();
+        productoController.getProductos(new ResultListener<List<Productos>>() {
+            @Override
+            public void onFinish(List<Productos> result) {
+                ProductosAdapter productosAdapter = new ProductosAdapter(result, MercadoEsclavoFragment.this);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(),2);
+                recyclerViewProductos.setLayoutManager(gridLayoutManager);
+                recyclerViewProductos.setAdapter(productosAdapter);
+
+            }
+
+             });
+
 
         return view;
     }
