@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 public interface ProductoService {
 
     @GET("sites/MLA/search")
-    Call<ProductosConteiner> getProductos(@Query("q") String busqueda);
+    Call<ProductosConteiner> getProductos(@Query("q") String busqueda, @Query("offset=") Integer offset);
 
     @GET("items/{id}")
     Call<Productos> getProductosPorId(@Path("id") String id);

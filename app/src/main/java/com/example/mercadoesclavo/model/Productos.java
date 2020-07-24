@@ -33,9 +33,17 @@ public class Productos implements Serializable {
     private Integer soldQuantity;
     @SerializedName("pictures")
     private ArrayList<Pictures> picturelist;
+    private Boolean esFav;
 
+    public Boolean getEsFav() {
+        return esFav;
+    }
 
-    public Productos(String id, String title, Double price, String thumbnail, Address address, String plainText, Date startTime, Integer soldQuantity, ArrayList<Pictures> picturelist) {
+    public void setEsFav(Boolean esFav) {
+        this.esFav = esFav;
+    }
+
+    public Productos(String id, String title, Double price, String thumbnail, Address address, String plainText, Date startTime, Integer soldQuantity, ArrayList<Pictures> picturelist, Boolean esFav) {
         this.id = id;
         this.title = title;
         this.price = price;
@@ -45,6 +53,7 @@ public class Productos implements Serializable {
         this.startTime = startTime;
         this.soldQuantity = soldQuantity;
         this.picturelist = picturelist;
+        this.esFav = esFav;
     }
 
     public ArrayList<Pictures> getPictures() {

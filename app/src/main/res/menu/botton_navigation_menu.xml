@@ -26,10 +26,4 @@
         android:icon="@drawable/ic_assignment_black_24dp"
         android:enabled="true"/>
 
-    <item
-        android:id="@+id/Perfil"
-        android:title="PERFIL"
-        android:icon="@drawable/ic_person_black_24dp"
-        android:enabled="true"/>
-
 </menu>

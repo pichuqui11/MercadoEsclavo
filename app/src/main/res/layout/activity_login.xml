@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.LoginActivity"
+    android:backgroundTint="#f5f5f5">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:src="@drawable/logo_mercado_esclavo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Te damos la bienvenida a Mercado Esclavo, un lugar feliz donde puedes comprar lo que quieras sin que te rete tu mujer."
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="12dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        android:textColor="#000"
+        android:backgroundTint="#08376b"
+        android:hint="Ingrese su dirección de mail"
+        android:singleLine="true"
+        android:id="@+id/usuarioLogin"/>
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:textColor="#000"
+        android:backgroundTint="#08376b"
+        android:hint="Ingrese su contraseña"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:id="@+id/passwordLogin"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INICIAR SESION"
+        android:layout_gravity="center"
+        android:id="@+id/botonIniciarSesion"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Aún no se ha registrado?"
+        android:paddingTop="5dp"
+        android:textSize="10dp"
+        android:layout_gravity="center"
+        android:textColor="#08376b"
+        android:id="@+id/textViewSinRegistro"
+        android:onClick="onClick"/>
+
+</LinearLayout>

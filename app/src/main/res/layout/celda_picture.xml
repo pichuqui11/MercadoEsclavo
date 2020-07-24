@@ -6,6 +6,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:id="@+id/CeldaPicture"/>
+        android:id="@+id/CeldaPicture"
+        android:src="@drawable/loading"
+        />
 
 </LinearLayout>

@@ -11,6 +11,8 @@ public class ProductoController {
 
     private ProductoDao productoDao;
 
+    private Integer offset = 0;
+
 
     public ProductoController() {
         this.productoDao = new ProductoDao();
@@ -23,10 +25,11 @@ public class ProductoController {
         productoDao.getProducto(new ResultListener<List<Productos>>() {
             @Override
             public void onFinish(List<Productos> result) {
+                offset = offset + 50;
                 resultListenerFromView.onFinish(result);
             }
 
-        });
+        },offset);
 
     }
 

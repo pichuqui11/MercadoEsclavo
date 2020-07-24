@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:id="@+id/drawerLayout">
+    android:id="@+id/drawerLayout"
+    android:backgroundTint="#f5f5f5">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,10 +17,11 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="#EAEAEA"
-            app:titleTextColor="#000"
+            android:background="#000"
             android:id="@+id/activityMainToolBar"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:backgroundTint="#f5f5f5"
+            />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -42,11 +44,17 @@
 
     </RelativeLayout>
 
+
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_view"
-        android:id="@+id/navigationView"/>
+        android:id="@+id/navigationView"
+        app:headerLayout="@layout/navigationviewheader"
+        app:menu="@menu/navigation_view"/>
+
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

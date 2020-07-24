@@ -2,9 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="3dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -13,9 +14,12 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/producto_atari2600"
+            android:src="@drawable/loading"
             android:scaleType="centerInside"
-            android:id="@+id/celdaImageViewProducto"/>
+            android:id="@+id/celdaImageViewProducto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -25,7 +29,10 @@
             android:textColor="#000"
             android:id="@+id/celdaTextViewNombreProducto"
             android:singleLine="true"
-            android:paddingTop="10dp"/>
+            android:paddingTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/celdaImageViewProducto"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -34,18 +41,19 @@
             android:textStyle="bold"
             android:textColor="#000"
             android:text="$ 3000"
-            android:id="@+id/celdaTextViewPrecioProducto"/>
+            android:id="@+id/celdaTextViewPrecioProducto"
+            app:layout_constraintTop_toBottomOf="@id/celdaTextViewNombreProducto"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_outline_location_on_24"/>
+                android:src="@drawable/ic_outline_location_on_24"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/celdaTextViewPrecioProducto"
+                android:id="@+id/ImagenViewGps"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,11 +61,14 @@
                 android:text="Buenos Aires, Bragado"
                 android:textSize="12dp"
                 android:singleLine="true"
-                android:id="@+id/CeldaTextViewLocation"/>
+                android:id="@+id/CeldaTextViewLocation"
+                app:layout_constraintLeft_toRightOf="@+id/ImagenViewGps"
+                app:layout_constraintTop_toBottomOf="@+id/celdaTextViewPrecioProducto"
+                android:layout_marginTop="15dp"/>
 
-        </LinearLayout>
 
-    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

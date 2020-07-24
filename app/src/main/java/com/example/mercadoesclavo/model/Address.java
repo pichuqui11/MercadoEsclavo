@@ -12,6 +12,9 @@ public class Address implements Serializable{
     @SerializedName("city_name")
     private String cityName;
 
+    public Address() {
+    }
+
     public Address(String stateName, String cityName) {
         this.stateName = stateName;
         this.cityName = cityName;

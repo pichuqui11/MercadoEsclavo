@@ -17,13 +17,14 @@ public class ProductoDao extends RetrofitDao {
 
     private ProductoService productoService;
 
+
     public ProductoDao() {
         productoService = retrofit.create(ProductoService.class);
     }
 
-    public void getProducto(final ResultListener<List<Productos>> resultListenerFromController) {
+    public void getProducto(final ResultListener<List<Productos>> resultListenerFromController, Integer offset) {
 
-        Call<ProductosConteiner> call = this.productoService.getProductos("Novedades");
+        Call<ProductosConteiner> call = this.productoService.getProductos("Esclavo", offset);
         call.enqueue(new Callback<ProductosConteiner>() {
             @Override
             public void onResponse(Call<ProductosConteiner> call, Response<ProductosConteiner> response) {

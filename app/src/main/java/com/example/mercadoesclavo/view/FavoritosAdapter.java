@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,37 +13,32 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mercadoesclavo.R;
 import com.example.mercadoesclavo.model.Productos;
-import com.example.mercadoesclavo.model.ProductosConteiner;
-import com.google.android.material.badge.BadgeUtils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.Format;
 import java.util.List;
 
-public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolderProductos> {
+public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.ViewHolderFavoritos> {
 
     private List<Productos> productosList;
-    private ProductosAdapterListener productosAdapterListener;
+    private FavoritosAdapterListener favoritosAdapterListener;
 
 
-    public ProductosAdapter(List<Productos> productosList, ProductosAdapterListener listener) {
+    public FavoritosAdapter(List<Productos> productosList, FavoritosAdapterListener favoritosAdapterListener) {
         this.productosList = productosList;
-        this.productosAdapterListener = listener;
+        this.favoritosAdapterListener = favoritosAdapterListener;
     }
 
     @NonNull
     @Override
-    public ViewHolderProductos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderFavoritos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.celda_producto, parent, false);
 
-        return new ViewHolderProductos(view);
+        return new ViewHolderFavoritos(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderProductos holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, int position) {
         Productos productos = this.productosList.get(position);
         holder.onBind(productos);
     }
@@ -54,12 +48,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         return productosList.size();
     }
 
-    public void setProductosList(List<Productos> productosList){
-        this.productosList = productosList;
-        notifyDataSetChanged();
-    }
-
-    protected class ViewHolderProductos extends RecyclerView.ViewHolder{
+    protected class ViewHolderFavoritos extends RecyclerView.ViewHolder{
 
         private ImageView imageViewProductos;
         private TextView textViewNombreProductos;
@@ -67,27 +56,26 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         private TextView textViewLocation;
         private ImageButton buttonFav;
 
-
-
-        public ViewHolderProductos(@NonNull final View itemView) {
+        public ViewHolderFavoritos(@NonNull View itemView) {
             super(itemView);
+
             imageViewProductos = itemView.findViewById(R.id.celdaImageViewProducto);
             textViewNombreProductos = itemView.findViewById(R.id.celdaTextViewNombreProducto);
             textViewPreciosProductos = itemView.findViewById(R.id.celdaTextViewPrecioProducto);
             textViewLocation = itemView.findViewById(R.id.CeldaTextViewLocation);
             buttonFav = itemView.findViewById(R.id.fragmentDetailBotonFav);
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Productos productos = productosList.get(getAdapterPosition());
-                    productosAdapterListener.onClickProductos(productos);
+                    favoritosAdapterListener.onClick(productos);
                 }
             });
 
-        }
 
+
+        }
 
         public void onBind(Productos productos) {
             Glide.with(textViewNombreProductos.getContext())
@@ -95,18 +83,16 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
                     .fitCenter()
                     .into(imageViewProductos);
 
-
             textViewNombreProductos.setText(productos.getTitle());
             textViewPreciosProductos.setText("$ " + productos.getPrice().toString());
             textViewLocation.setText(productos.getAddress().getStateName()+ ", " + productos.getAddress().getCityName());
 
-
-
         }
     }
 
-        public interface ProductosAdapterListener {
-        public void onClickProductos(Productos productos);
-        }
+
+    public interface FavoritosAdapterListener {
+        public void onClick(Productos productos);
+    }
 
 }
